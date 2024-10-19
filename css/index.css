@@ -1,0 +1,43 @@
+/* Styles for the character selection dropdown container */
+.select-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Font size for text in the dropdown options */
+.select-container > .option-text {
+  font-size: 1.7vw;
+}
+
+/* Container for share buttons */
+.share-container {
+  font-size: 1.5vw;
+  text-align: right;
+  margin: 10px 10px 0 0;
+  user-select: none;
+}
+
+/* Footer text styling */
+.footer-container {
+  font-size: 1.2vw;
+  color: #999;
+  text-align: left;
+  margin: 10px 0 30px 10px;
+  user-select: none;
+}
+
+/* General text styling for titles */
+.text {
+  font-size: 1.7vw;
+  margin: 20px 0 0 0;
+  text-align: center;
+  user-select: none;
+}
+
+/* Styling for object SVG maps */
+object {
+  margin: 10px 0;
+  width: 100%;
+  user-select: none;
+}

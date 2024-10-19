@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="ハヤテのごとく,ハヤテ,マップ">
+  <meta name="description" content="ハヤテのごとく！を一目で理解・布教できるマップです">
+  <title>ハヤテのすすめ</title>
+
+  <!-- Favicon and Touch Icons for different devices -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="android-touch-icon.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.png" type="image/png" sizes="512x512">
+
+  <!-- Open Graph Meta Tags for social media sharing -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ハヤテのすすめ">
+  <meta property="og:url" content="https://hayate-no-susume.github.io">
+  <meta property="og:image" content="https://hayate-no-susume.github.io/images/music.png">
+  <meta property="og:description" content="ハヤテのごとく！を一目で理解・布教できるマップです">
+  <meta property="og:site_name" content="ハヤテのすすめ">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="libs/bootstrap/4.3.1/css/bootstrap.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <!-- JavaScript Libraries -->
+  <script src="libs/jquery/jquery-3.3.1.min.js"></script>
+  <script src="libs/popper/popper.min.js"></script>
+  <script src="libs/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://platform.twitter.com/widgets.js" async></script>
+</head>
+<body>
+  <!-- Title for the music map -->
+  <div id="musicMapTitle" class="text">ハヤテ楽曲のすすめ</div>
+
+  <!-- Object SVG map for music -->
+  <object id="musicMapObject" class="map" data="images/music.svg" type="image/svg+xml"></object>
+
+  <!-- Dropdown for character selection and title for character map -->
+  <div id="characterMapTitle" class="text">
+    <div class="select-container">
+      <!-- Dropdown menu to select a character, which triggers the update function -->
+      <select id="characterSelect" class="form-control form-control-md option-text w-25 mr-2" onchange="updateCharacterShareLinkAndMap();">
+        <!-- List of character options -->
+        <option value="0">ハヤテ漫画</option>
+        <option value="1">愛沢咲夜</option>
+        <option value="2">朝風理沙</option>
+        <option value="3">足橋剛治</option>
+        <option value="4">東宮康太郎</option>
+        <option value="5">集</option>
+        <option value="6">綾崎イクサ</option>
+        <option value="7">綾崎ハヤテ</option>
+        <option value="8">綾崎ハヤテ (女装)</option>
+        <option value="9">綾崎ハヤテ (幼少期)</option>
+        <option value="10">アリス</option>
+        <option value="11">アルマゲドン</option>
+        <option value="12">エイト</option>
+        <option value="13">大河内大河</option>
+        <option value="14">薫京ノ介</option>
+        <option value="15">加賀北斗</option>
+        <option value="16">霞愛歌</option>
+        <option value="17">桂ヒナギク</option>
+        <option value="18">桂雪路</option>
+        <option value="19">金庭</option>
+        <option value="20">貴嶋サキ</option>
+        <option value="21">京橋ヨミ</option>
+        <option value="22">ギルバート・ケント</option>
+        <option value="23">クラウス</option>
+        <option value="24">冴木ヒムロ</option>
+        <option value="25">鷺ノ宮伊澄</option>
+        <option value="26">鷺ノ宮銀華</option>
+        <option value="27">鷺ノ宮初穂</option>
+        <option value="28">三千院ナギ</option>
+        <option value="29">三千院帝</option>
+        <option value="30">三千院紫子</option>
+        <option value="31">シィ</option>
+        <option value="32">シャルナ・アーラムギル</option>
+        <option value="33">シラヌイ</option>
+        <option value="34">水蓮寺ルカ</option>
+        <option value="35">瀬川泉</option>
+        <option value="36">瀬川虎鉄</option>
+        <option value="37">ソニア・シャフルナーズ</option>
+        <option value="38">橘美琴</option>
+        <option value="39">橘ワタル</option>
+        <option value="40">タマ</option>
+        <option value="41">ツグミ・ルリ</option>
+        <option value="42">剣野カユラ</option>
+        <option value="43">天王州アテネ</option>
+        <option value="44">ドクター黒須</option>
+        <option value="45">西沢歩</option>
+        <option value="46">西沢一樹</option>
+        <option value="47">野々原楓</option>
+        <option value="48">初柴ヒスイ</option>
+        <option value="49">花菱美希</option>
+        <option value="50">春風千桜</option>
+        <option value="51">日比野文</option>
+        <option value="52">姫神葵</option>
+        <option value="53">法仙夜空</option>
+        <option value="54">真泉</option>
+        <option value="55">牧瀬恋葉</option>
+        <option value="56">マキナ</option>
+        <option value="57">牧村志織</option>
+        <option value="58">マリア</option>
+        <option value="59">南野宗谷</option>
+        <option value="60">リィン・レジオスター</option>
+      </select>
+      <span>のすすめ</span>
+    </div>
+  </div>
+
+  <!-- Object SVG map for selected character -->
+  <object id="characterMapObject" class="map" data="images/character-0.svg" type="image/svg+xml"></object>
+
+  <!-- Container for social media share links -->
+  <div id="shareCharacterContainer" class="share-container"></div>
+  <div id="shareMainpageContainer" class="share-container"></div>
+
+  <!-- Footer note indicating this is an unofficial fan site -->
+  <div class="footer-container">※ 本サイトは、非公式ファンサイトです</div>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/const.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
